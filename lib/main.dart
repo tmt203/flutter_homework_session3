@@ -35,12 +35,17 @@ const titleAccountStyle = TextStyle(
   height: (45 / 30), // line height = fontsize * height
 );
 
-const subAccountStyle = TextStyle(
-  fontSize: 30,
-  fontWeight: FontWeight.w700,
-  wordSpacing: 0.03,
-  height: (45 / 30), // line height = fontsize * height
+const subTitleAccountStyle = TextStyle(
+  fontSize: 14,
+  fontWeight: FontWeight.w400,
+  wordSpacing: 0.01,
+  height: (24 / 14), // line height = fontsize * height
 );
+
+TextStyle textStyleForUrbanistFont(
+    {required TextStyle textStyle, required Color textColor}) {
+  return GoogleFonts.urbanist(textStyle: textStyle, color: textColor);
+}
 
 // context
 const titleText1 = "Enjoy The New Arrival Product";
@@ -48,6 +53,8 @@ const titleText2 = "Guaranteed Safe Delivery";
 const titleText3 = "Goods Arrived\n On Time";
 const subTitleText =
     "Get your dream item easily and safely with\n Shoesly. and get other interesting offers";
+const titleLogin = "Sign In";
+const subTitleLogin = "Please sign up to your Shoesly Account";
 
 // icons path
 const mainImagePath1 = "assets/images/hinh1.png";
@@ -55,6 +62,8 @@ const mainImagePath2 = "assets/images/hinh2.png";
 const mainImagePath3 = "assets/images/hinh3.png";
 const googleIconPath = "assets/icons/google.png";
 const fbIconPath = "assets/icons/facebook.png";
+
+// Buttons
 
 void main() {
   runApp(const MyApp());
@@ -75,7 +84,10 @@ class MyApp extends StatelessWidget {
       //   title: titleText3, // titleText2 titleText3
       //   subTitle: subTitleText,
       // ),
-      home: const SignIn(),
+      home: const SignIn(
+        title: "Sign In",
+        subTitle: "Please sign up to your Shoesly Account",
+      ),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -124,47 +136,7 @@ class MyHomePage extends StatelessWidget {
 
             // Buttons
             const SizedBox(height: 57),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                // Get started Button
-                Container(
-                  width: 315,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: titleColor,
-                    borderRadius: BorderRadius.circular(100),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 16.5,
-                      horizontal: 111,
-                    ),
-                    child: Text(
-                      'GET STARTED',
-                      style: GoogleFonts.urbanist(
-                        textStyle: textButtonFont,
-                        color: const Color(0xFFffffff),
-                      ),
-                    ),
-                  ),
-                ),
-
-                // Footer Buttons
-                const SizedBox(height: 20),
-                SizedBox(
-                  width: 315,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      FootButton(iconPath: googleIconPath, text: "GOOGLE"),
-                      FootButton(iconPath: fbIconPath, text: "FACEBOOK"),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 32),
-              ],
-            )
+            const MainButton(text: 'GET STARTED'),
           ],
         ),
       ),
@@ -172,27 +144,124 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
+class MainButton extends StatelessWidget {
+  const MainButton({
+    Key? key,
+    required this.text,
+  }) : super(key: key);
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        // Get started Button
+        Container(
+          width: 315,
+          height: 50,
+          decoration: BoxDecoration(
+            color: titleColor,
+            borderRadius: BorderRadius.circular(100),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 16.5,
+            ),
+            child: Text(
+              text,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.urbanist(
+                textStyle: textButtonFont,
+                color: const Color(0xFFffffff),
+              ),
+            ),
+          ),
+        ),
+
+        // Footer Buttons
+        const SizedBox(height: 20),
+        SizedBox(
+          width: 315,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              FootButton(iconPath: googleIconPath, text: "GOOGLE"),
+              FootButton(iconPath: fbIconPath, text: "FACEBOOK"),
+            ],
+          ),
+        ),
+        const SizedBox(height: 32),
+      ],
+    );
+  }
+}
+
 // Sign in interface
 class SignIn extends StatelessWidget {
-  const SignIn({Key? key}) : super(key: key);
+  const SignIn({Key? key, required this.title, required this.subTitle})
+      : super(key: key);
+
+  final String title;
+  final String subTitle;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 92),
-            RichText(
-              text: TextSpan(
-                style: GoogleFonts.urbanist(),
-                children: const [
-                  TextSpan(text: "Sign Up\n"),
-                  TextSpan(text: "Please sign up to your Shoesly Account")
-                ],
+            Text(
+              title,
+              style: textStyleForUrbanistFont(
+                textStyle: titleAccountStyle,
+                textColor: titleColor,
               ),
             ),
+            const SizedBox(height: 10),
+            Text(
+              subTitle,
+              style: textStyleForUrbanistFont(
+                textStyle: subTitleAccountStyle,
+                textColor: subTitleColor,
+              ),
+            ),
+            const SizedBox(height: 71),
+            const Text("Email"),
+            const TextField(
+              style: subTitleFont,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: titleColor),
+                ),
+                contentPadding: EdgeInsets.fromLTRB(0, 10, 0, 20),
+              ),
+            ),
+            const SizedBox(height: 30),
+            const Text("Password"),
+            TextField(
+              style: subTitleFont,
+              decoration: InputDecoration(
+                suffixIcon: Image.asset("assets/icons/eye.png"),
+                contentPadding: const EdgeInsets.fromLTRB(0, 10, 0, 20),
+              ),
+            ),
+            const SizedBox(height: 186),
+            const Center(child: MainButton(text: "SIGN IN")),
+            RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(text: "Join with us.", style: textStyleForUrbanistFont(textStyle: textStyle, textColor: textColor),
+                  TextSpan(text: "Create Account")
+                ]
+              ),
+            )
           ],
         ),
       ),
@@ -226,10 +295,11 @@ class FootButton extends StatelessWidget {
           const SizedBox(width: 8),
           Text(
             text,
-            style: GoogleFonts.urbanist(
-              textStyle: textButtonFont,
-              color: titleColor,
-            ),
+            style: textStyleForUrbanistFont(textStyle: textButtonFont, textColor: titleColor),
+            // style: GoogleFonts.urbanist(
+            //   textStyle: textButtonFont,
+            //   color: titleColor,
+            // ),
           ),
         ],
       ),

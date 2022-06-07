@@ -65,6 +65,7 @@ flutter:
     - assets/images/hinh3.png
     - assets/icons/google.png
     - assets/icons/facebook.png
+    - assets/icons/eye.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
