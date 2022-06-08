@@ -17,30 +17,42 @@ const subTitleFont = TextStyle(
   fontSize: 14,
   color: subTitleColor,
   fontWeight: FontWeight.w400,
-  wordSpacing: 0.01,
+  letterSpacing: 0.01,
   height: (24 / 14), // line height = fontsize * height
 );
 
 const textButtonFont = TextStyle(
   fontSize: 14,
   fontWeight: FontWeight.w700,
-  wordSpacing: 0.01,
+  letterSpacing: 0.01,
   height: (16.8 / 14), // line height = fontsize * height
 );
 
 const titleAccountStyle = TextStyle(
   fontSize: 30,
   fontWeight: FontWeight.w700,
-  wordSpacing: 0.03,
+  letterSpacing: 0.03,
   height: (45 / 30), // line height = fontsize * height
 );
 
 const subTitleAccountStyle = TextStyle(
   fontSize: 14,
   fontWeight: FontWeight.w400,
-  wordSpacing: 0.01,
+  letterSpacing: 0.01,
   height: (24 / 14), // line height = fontsize * height
 );
+
+const footerLoginStyle1 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0.01,
+    height: (16.8 / 14));
+
+const footerLoginStyle2 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
+    letterSpacing: 0.01,
+    height: (24 / 14));
 
 TextStyle textStyleForUrbanistFont(
     {required TextStyle textStyle, required Color textColor}) {
@@ -137,6 +149,7 @@ class MyHomePage extends StatelessWidget {
             // Buttons
             const SizedBox(height: 57),
             const MainButton(text: 'GET STARTED'),
+            const SizedBox(height: 32),
           ],
         ),
       ),
@@ -192,7 +205,6 @@ class MainButton extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 32),
       ],
     );
   }
@@ -209,60 +221,73 @@ class SignIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 92),
-            Text(
-              title,
-              style: textStyleForUrbanistFont(
-                textStyle: titleAccountStyle,
-                textColor: titleColor,
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              subTitle,
-              style: textStyleForUrbanistFont(
-                textStyle: subTitleAccountStyle,
-                textColor: subTitleColor,
-              ),
-            ),
-            const SizedBox(height: 71),
-            const Text("Email"),
-            const TextField(
-              style: subTitleFont,
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: titleColor),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 92),
+              Text(
+                title,
+                style: textStyleForUrbanistFont(
+                  textStyle: titleAccountStyle,
+                  textColor: titleColor,
                 ),
-                contentPadding: EdgeInsets.fromLTRB(0, 10, 0, 20),
               ),
-            ),
-            const SizedBox(height: 30),
-            const Text("Password"),
-            TextField(
-              style: subTitleFont,
-              decoration: InputDecoration(
-                suffixIcon: Image.asset("assets/icons/eye.png"),
-                contentPadding: const EdgeInsets.fromLTRB(0, 10, 0, 20),
+              const SizedBox(height: 10),
+              Text(
+                subTitle,
+                style: textStyleForUrbanistFont(
+                  textStyle: subTitleAccountStyle,
+                  textColor: subTitleColor,
+                ),
               ),
-            ),
-            const SizedBox(height: 186),
-            const Center(child: MainButton(text: "SIGN IN")),
-            RichText(
-              text: TextSpan(
-                children: [
-                  TextSpan(text: "Join with us.", style: textStyleForUrbanistFont(textStyle: textStyle, textColor: textColor),
-                  TextSpan(text: "Create Account")
-                ]
+              const SizedBox(height: 71),
+              const Text("Email"),
+              const TextField(
+                style: subTitleFont,
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: titleColor),
+                  ),
+                  contentPadding: EdgeInsets.fromLTRB(0, 10, 0, 20),
+                ),
               ),
-            )
-          ],
+              const SizedBox(height: 30),
+              const Text("Password"),
+              TextField(
+                style: subTitleFont,
+                decoration: InputDecoration(
+                  suffixIcon: Image.asset("assets/icons/eye.png"),
+                  contentPadding: const EdgeInsets.fromLTRB(0, 10, 0, 20),
+                ),
+              ),
+              const SizedBox(height: 186),
+              const Center(child: MainButton(text: "SIGN IN")),
+              const SizedBox(height: 15), // Design 20
+              Center(
+                child: RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                          text: "Join with us, ",
+                          style: textStyleForUrbanistFont(
+                              textStyle: footerLoginStyle1,
+                              textColor: subTitleColor)),
+                      TextSpan(
+                          text: "Create Account",
+                          style: textStyleForUrbanistFont(
+                              textStyle: footerLoginStyle2,
+                              textColor: titleColor)),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -295,11 +320,8 @@ class FootButton extends StatelessWidget {
           const SizedBox(width: 8),
           Text(
             text,
-            style: textStyleForUrbanistFont(textStyle: textButtonFont, textColor: titleColor),
-            // style: GoogleFonts.urbanist(
-            //   textStyle: textButtonFont,
-            //   color: titleColor,
-            // ),
+            style: textStyleForUrbanistFont(
+                textStyle: textButtonFont, textColor: titleColor),
           ),
         ],
       ),
