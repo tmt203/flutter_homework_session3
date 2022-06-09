@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'attributes.dart';
+import '../constants/attributes.dart';
 import 'foot_button.dart';
 
 // Support class

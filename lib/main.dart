@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'src/features/onboarding/onboarding_screen.dart';
-import 'src/features/supports/attributes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,26 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: PageView(
-        scrollDirection: Axis.horizontal,
-        children: const [
-          OnboardingScreen(
-            imagePath: mainImagePath1,
-            title: titleText1,
-            subTitle: subTitleText,
-          ),
-          OnboardingScreen(
-            imagePath: mainImagePath2,
-            title: titleText2,
-            subTitle: subTitleText,
-          ),
-          OnboardingScreen(
-            imagePath: mainImagePath3,
-            title: titleText3,
-            subTitle: subTitleText,
-          ),
-        ],
-      ),
+      home: OnboardingScreen(),
 
       // home: const OnboardingScreen(
       //   imagePath: mainImagePath3, // mainImagePath2 mainImagePath3

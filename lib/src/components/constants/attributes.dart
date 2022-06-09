@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 // colors
 const titleColor = Color(0xFF101010);
 const subTitleColor = Color(0xFF6F6F6F);
+const slideDashColor = Color(0xFFF3F3F3);
 
 // fonts
 const titleFont = TextStyle(
@@ -59,18 +60,18 @@ TextStyle textStyleForUrbanistFont([TextStyle? textStyle, Color? textColor]) {
 }
 
 // context
-const titleText1 = "Enjoy The New Arrival Product";
-const titleText2 = "Guaranteed Safe Delivery";
-const titleText3 = "Goods Arrived\n On Time";
-const subTitleText =
-    "Get your dream item easily and safely with\n Shoesly. and get other interesting offers";
+// const titleText1 = "Enjoy The New Arrival Product";
+// const titleText2 = "Guaranteed Safe Delivery";
+// const titleText3 = "Goods Arrived\n On Time";
+// const subTitleText =
+//     "Get your dream item easily and safely with\n Shoesly. and get other interesting offers";
 const titleLogin = "Sign In";
 const subTitleLogin = "Please sign up to your Shoesly Account";
 
 // icons path
-const mainImagePath1 = "assets/images/hinh1.png";
-const mainImagePath2 = "assets/images/hinh2.png";
-const mainImagePath3 = "assets/images/hinh3.png";
+// const mainImagePath1 = "assets/images/hinh1.png";
+// const mainImagePath2 = "assets/images/hinh2.png";
+// const mainImagePath3 = "assets/images/hinh3.png";
 const googleIconPath = "assets/icons/google.png";
 const fbIconPath = "assets/icons/facebook.png";
 

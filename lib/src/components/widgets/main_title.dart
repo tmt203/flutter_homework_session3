@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'attributes.dart';
+import '../constants/attributes.dart';
 
 class MainTitle extends StatelessWidget {
   const MainTitle({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../supports/attributes.dart';
-import '../supports/main_button.dart';
+import '../../components/constants/attributes.dart';
+import '../../components/widgets/main_button.dart';
 
 // Sign in interface
 class SignIn extends StatelessWidget {
