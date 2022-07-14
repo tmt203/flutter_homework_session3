@@ -34,7 +34,9 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  google_fonts: ^2.0.0
+  provider: ^6.0.3
+  # Http client
+  http: ^0.13.4
 
 dev_dependencies:
   flutter_test:
@@ -63,9 +65,36 @@ flutter:
     - assets/images/hinh1.png
     - assets/images/hinh2.png
     - assets/images/hinh3.png
+    - assets/images/hinh4.png
+    - assets/images/banner.png
+    - assets/images/jordan.png
+    - assets/images/adidas.png
+    - assets/images/popular1.png
+    - assets/images/popular2.png
+    - assets/images/popular3.png
+    - assets/icons/search-normal.png
+    - assets/icons/camera.png
     - assets/icons/google.png
     - assets/icons/facebook.png
     - assets/icons/eye.png
+    - assets/icons/check.png
+    - assets/icons/nike.png
+    - assets/icons/puma.png
+    - assets/icons/adidas.png
+    - assets/icons/reebook.png
+    - assets/icons/nike-icon.png
+    - assets/icons/adidas-icon.png
+    - assets/icons/heart-icon-on.png
+    - assets/icons/heart-icon-off.png
+    - assets/icons/star.png
+    - assets/icons/jordan.png
+    - assets/icons/home-2.png
+    - assets/icons/heart.png
+    - assets/icons/order.png
+    - assets/icons/discover.png
+    - assets/icons/profile.png
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -78,17 +107,13 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
+  fonts:
+    - family: Urbanist
+      fonts:
+        - asset: assets/fonts/Urbanist-Regular.ttf
+        - asset: assets/fonts/Urbanist-Bold.ttf
+
+
+  
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

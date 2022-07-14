@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../constants/attributes.dart';
 
 class MainTitle extends StatelessWidget {
   const MainTitle({
@@ -18,10 +17,7 @@ class MainTitle extends StatelessWidget {
       child: Text(
         titleText,
         textAlign: TextAlign.center,
-        style: textStyleForUrbanistFont(
-          titleFont,
-          titleColor,
-        ),
+        style: titleFont,
       ),
     );
   }

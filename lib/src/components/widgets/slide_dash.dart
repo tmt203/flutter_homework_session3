@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../components/constants/attributes.dart';
 
-class SlashCustomWidget extends StatelessWidget {
-  const SlashCustomWidget({Key? key, required this.index}) : super(key: key);
+class SlideDashCustomWidget extends StatelessWidget {
+  const SlideDashCustomWidget({Key? key, required this.index})
+      : super(key: key);
   final int index;
 
   List<Widget> getCustomSlash(int index) {
@@ -17,6 +17,8 @@ class SlashCustomWidget extends StatelessWidget {
     );
   }
 }
+
+const slideDashColor = Color(0xFFF3F3F3);
 
 List<Widget> slashTypes = [
   Container(
@@ -34,7 +36,7 @@ List<Widget> slashTypes = [
       Container(
         height: 3,
         width: 25,
-        color: titleColor,
+        color: Colors.black,
       ),
     ],
   ),
@@ -48,7 +50,7 @@ List<Widget> slashTypes = [
       Container(
         height: 3,
         width: 50,
-        color: titleColor,
+        color: Colors.black,
       ),
     ],
   ),

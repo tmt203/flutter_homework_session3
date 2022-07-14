@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../constants/attributes.dart';
 
 class FootButton extends StatelessWidget {
   const FootButton({
@@ -27,7 +26,7 @@ class FootButton extends StatelessWidget {
           const SizedBox(width: 8),
           Text(
             text,
-            style: textStyleForUrbanistFont(textButtonFont, titleColor),
+            style: Theme.of(context).textTheme.button,
           ),
         ],
       ),
